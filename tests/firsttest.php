@@ -1,4 +1,4 @@
-<?
+<?php
 describe('my first bdd test', function() {
 	it('should run this code', function() {
 		return true;

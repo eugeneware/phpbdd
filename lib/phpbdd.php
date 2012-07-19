@@ -1,4 +1,4 @@
-<?
+<?php
 require dirname(__FILE__) . '/ANSIColor.php';
 assert_options(ASSERT_ACTIVE, 1);
 assert_options(ASSERT_WARNING, 0);
