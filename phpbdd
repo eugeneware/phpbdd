@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?
+require_once('./lib/phpbdd.php');
+
+$testDir = './tests';
+
+if ($handle = opendir($testDir)) {
+
+	while (false !== ($entry = readdir($handle))) {
+		if (preg_match("/.*\.php$/sim", $entry)) {
+			require_once($testDir . '/' . $entry);
+		}
+	}
+}
+
+bdd_errors();
