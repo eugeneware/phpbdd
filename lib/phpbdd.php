@@ -97,10 +97,15 @@ function bdd_indent($str, $level = 1) {
 
 function bdd_errors() {
 	global $ac, $bdd_errors, $bdd_tests, $bdd_tests_failed;
-	echo "\n" . $ac->red('  ✖ ' . $bdd_tests_failed . ' of ' . $bdd_tests . ' failed: ') . "\n\n";
 
-	foreach ($bdd_errors as $n => $err) {
-		echo bdd_pre_indent(($n + 1) . ') ' . $err['it'] .  ":\n", 1);
-		echo bdd_indent($ac->white($err['error']), 2) . "\n\n";
+	if ($bdd_tests_failed) {
+		echo "\n" . $ac->red('  ✖ ' . $bdd_tests_failed . ' of ' . $bdd_tests . ' failed: ') . "\n\n";
+
+		foreach ($bdd_errors as $n => $err) {
+			echo bdd_pre_indent(($n + 1) . ') ' . $err['it'] .  ":\n", 1);
+			echo bdd_indent($ac->white($err['error']), 2) . "\n\n";
+		}
+	} else {
+		echo $ac->green('  ✓ ' . $bdd_tests . ' test' . ($bdd_tests === 1 ? '' : 's') . ' complete') . "\n\n";
 	}
 }
