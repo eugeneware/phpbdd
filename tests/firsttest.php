@@ -19,3 +19,15 @@ describe('check results of functions', function() {
 		return true;
 	});
 });
+
+describe('handle exceptions', function() {
+	it('should handle throwing exceptions', function() {
+		throw new Exception('Blah');
+		return true;
+	});
+
+	it('should handle math exceptins', function() {
+		$x = 42 / 0;
+		return true;
+	});
+});
