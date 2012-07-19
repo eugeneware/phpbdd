@@ -1,6 +1,6 @@
 #!/usr/bin/env php
-<?
-require_once('./lib/phpbdd.php');
+<?php
+require_once(dirname(__FILE__) . '/lib/phpbdd.php');
 
 $testDir = './tests';
 
